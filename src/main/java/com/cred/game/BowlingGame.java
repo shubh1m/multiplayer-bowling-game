@@ -8,8 +8,8 @@ import com.cred.game.utils.RandomIdGenerator;
 import java.util.List;
 
 public class BowlingGame {
-	private long id;
-	private long laneId;
+	private Long id;
+	private Long laneId;
 	private int currentSet;
 	private int currentPlayerIndex;
 	private List<AbstractPlayer> players;
@@ -23,7 +23,7 @@ public class BowlingGame {
 		this.scoreboard = new Scoreboard();
 	}
 
-	public BowlingGame(long laneId, List<AbstractPlayer> players) {
+	public BowlingGame(Long laneId, List<AbstractPlayer> players) {
 		this();
 		this.id = RandomIdGenerator.getId();
 		this.laneId = laneId;
@@ -33,12 +33,16 @@ public class BowlingGame {
 		}
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
+	public Long getLaneId() {
+		return laneId;
+	}
+
 	public void play() {
-		if (this.currentSet > MAX_SETS) {
+		if (currentSet > MAX_SETS) {
 			// end game
 			return;
 		}

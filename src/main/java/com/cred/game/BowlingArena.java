@@ -1,5 +1,7 @@
 package com.cred.game;
 
+import com.cred.game.lane.Lane;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,5 +18,9 @@ public class BowlingArena {
 		} catch (InterruptedException e) {
 			// Handle
 		}
+	}
+
+	public List<Lane> getLanes() {
+		return lanes;
 	}
 }
