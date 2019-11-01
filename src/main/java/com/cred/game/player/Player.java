@@ -6,7 +6,6 @@ public class Player extends AbstractPlayer {
 	public Player(String name) {
 		super(name);
 	}
-	// create PlayerId class
 
 	@Override
 	public int rollInRange(int lowerBound, int upperBound) {

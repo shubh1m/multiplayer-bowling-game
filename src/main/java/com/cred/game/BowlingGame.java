@@ -14,10 +14,10 @@ public class BowlingGame {
 	private int currentPlayerIndex;
 	private List<AbstractPlayer> players;
 	private Scoreboard scoreboard;
-	public static final int MAX_PINS = 10;
 	public static final int MAX_SETS = 10;
 
 	private BowlingGame() {
+		this.id = RandomIdGenerator.getId();
 		this.currentSet = 1;
 		this.currentPlayerIndex = 0;
 		this.scoreboard = new Scoreboard();
@@ -25,7 +25,6 @@ public class BowlingGame {
 
 	public BowlingGame(Long laneId, List<AbstractPlayer> players) {
 		this();
-		this.id = RandomIdGenerator.getId();
 		this.laneId = laneId;
 		this.players = players;
 		for (AbstractPlayer player : players) {
@@ -48,7 +47,6 @@ public class BowlingGame {
 		}
 		AbstractPlayer currentPlayer = players.get(currentPlayerIndex);
 		int availablePins = scoreboard.getAvailablePinsForPlayer(currentPlayer.getId(), currentSet);
-		System.out.println("availablePins: " + availablePins + " currentSet: " + currentSet);
 		int noOfPins = currentPlayer.rollInRange(0, availablePins);
 		scoreboard.addChanceForPlayer(currentPlayer.getId(), currentSet, noOfPins);
 		int nextPlayerIndex = getNextPlayerIndex(currentPlayer, currentPlayerIndex, currentSet, players.size());
@@ -74,12 +72,12 @@ public class BowlingGame {
 		int nextPlayerIndex = currentPlayerIndex;
 		if (currentSet < MAX_SETS) {
 			if (scoreboard.getNumberOfPinsDownForSet(currentPlayer.getId(), currentSet) == 10
-					|| scoreboard.getStandings().get(currentPlayer.getId()).getSets().get(currentSet-1).getChances().size() >= 2) {
+					|| scoreboard.getChancesForPlayerAndSet(currentPlayer.getId(), currentSet) >= 2) {
 				nextPlayerIndex = (currentPlayerIndex + 1)%totalPlayers;
 			}
 		} else if (currentSet == MAX_SETS) {
 			if (scoreboard.getNumberOfPinsDownForSet(currentPlayer.getId(), currentSet) == 20
-					|| scoreboard.getStandings().get(currentPlayer.getId()).getSets().get(currentSet-1).getChances().size() >= 3) {
+					|| scoreboard.getChancesForPlayerAndSet(currentPlayer.getId(), currentSet) >= 3) {
 				nextPlayerIndex = (currentPlayerIndex + 1)%totalPlayers;
 			}
 		}

@@ -13,7 +13,7 @@ public class BowlingGameFactory {
 
 	private static BowlingArena bowlingArena;
 	private static List<BowlingGame> bowlingGames;
-	private static final int MAX_LANES = 1;
+	private static final int MAX_LANES = 10;
 
 	static {
 		if (Objects.isNull(bowlingArena)) {
@@ -23,6 +23,7 @@ public class BowlingGameFactory {
 			bowlingGames = new ArrayList<>();
 		}
 	}
+
 
 	public static BowlingGame createGame(List<AbstractPlayer> players) throws LaneNotAvailableException {
 		BowlingGame bowlingGame = new BowlingGame(getValidLaneId(), players);
