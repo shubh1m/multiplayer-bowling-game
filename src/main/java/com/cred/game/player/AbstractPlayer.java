@@ -2,7 +2,7 @@ package com.cred.game.player;
 
 import com.cred.game.utils.RandomIdGenerator;
 
-public abstract class AbstractPlayer implements IPlayer {
+public abstract class AbstractPlayer {
 	private long id;
 	private String name;
 
@@ -18,4 +18,7 @@ public abstract class AbstractPlayer implements IPlayer {
 	public String getName() {
 		return name;
 	}
+
+	public abstract int rollInRange(int lowerBound, int upperBound);
+
 }

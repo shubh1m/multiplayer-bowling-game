@@ -2,7 +2,7 @@ package com.cred.game.player;
 
 import com.cred.game.utils.RandomNumberGenerator;
 
-public class Player extends AbstractPlayer implements IPlayer  {
+public class Player extends AbstractPlayer {
 	public Player(String name) {
 		super(name);
 	}
