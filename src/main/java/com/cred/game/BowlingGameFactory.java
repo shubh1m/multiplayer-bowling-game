@@ -31,11 +31,11 @@ public class BowlingGameFactory {
 		return bowlingGame;
 	}
 
-	public static void removeGame(long bowlingGameId) {
+	public static void removeGame(String bowlingGameId) {
 		for (int i=0; i<bowlingGames.size(); i++) {
 			if (bowlingGames.get(i).getId() == bowlingGameId) {
 				synchronized (bowlingGames) {
-					Long laneId = bowlingGames.get(i).getLaneId();
+					String laneId = bowlingGames.get(i).getLaneId();
 					for (Lane lane : bowlingArena.getLanes()) {
 						if (lane.getId() == laneId) {
 							lane.setStatus(LaneStatus.AVAILABLE);
@@ -47,7 +47,7 @@ public class BowlingGameFactory {
 		}
 	}
 
-	private static Long getValidLaneId() {
+	private static String getValidLaneId() {
 		for (Lane lane : bowlingArena.getLanes()) {
 			if (lane.getStatus().equals(LaneStatus.AVAILABLE)) {
 				lane.setStatus(LaneStatus.IN_USE);

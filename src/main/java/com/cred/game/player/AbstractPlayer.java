@@ -3,7 +3,7 @@ package com.cred.game.player;
 import com.cred.game.utils.RandomIdGenerator;
 
 public abstract class AbstractPlayer {
-	private long id;
+	private String id;
 	private String name;
 
 	public AbstractPlayer(String name) {
@@ -11,7 +11,7 @@ public abstract class AbstractPlayer {
 		this.name = name;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 

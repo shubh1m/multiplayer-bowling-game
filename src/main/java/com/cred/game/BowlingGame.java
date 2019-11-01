@@ -8,8 +8,8 @@ import com.cred.game.utils.RandomIdGenerator;
 import java.util.List;
 
 public class BowlingGame {
-	private Long id;
-	private Long laneId;
+	private String id;
+	private String laneId;
 	private int currentSet;
 	private int currentPlayerIndex;
 	private List<AbstractPlayer> players;
@@ -23,7 +23,7 @@ public class BowlingGame {
 		this.scoreboard = new Scoreboard();
 	}
 
-	public BowlingGame(Long laneId, List<AbstractPlayer> players) {
+	public BowlingGame(String laneId, List<AbstractPlayer> players) {
 		this();
 		this.laneId = laneId;
 		this.players = players;
@@ -32,11 +32,11 @@ public class BowlingGame {
 		}
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public Long getLaneId() {
+	public String getLaneId() {
 		return laneId;
 	}
 
@@ -84,7 +84,7 @@ public class BowlingGame {
 		return nextPlayerIndex;
 	}
 
-	private int getNextSet(Long playerId, Long lastPlayerId, int currentSet) {
+	private int getNextSet(String playerId, String lastPlayerId, int currentSet) {
 		int nextSet = currentSet;
 		if (playerId == players.get(0).getId() && scoreboard.getStandings().get(lastPlayerId).getSets().size() == currentSet) {
 			nextSet = currentSet + 1;

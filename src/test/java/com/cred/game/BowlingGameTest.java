@@ -12,11 +12,8 @@ public class BowlingGameTest {
 		try {
 			List<AbstractPlayer> players = new ArrayList<>();
 			players.add(new Player("Shubham"));
-			Thread.sleep(1);
 			players.add(new Player("Vikas"));
-			Thread.sleep(1);
 			players.add(new Player("Monga"));
-			Thread.sleep(1);
 			BowlingGame bowlingGame1 = BowlingGameFactory.createGame(players);
 			BowlingGame bowlingGame2 = BowlingGameFactory.createGame(players);
 			while (!bowlingGame1.isOver()) {
@@ -27,8 +24,6 @@ public class BowlingGameTest {
 				bowlingGame2.play();
 			}
 			bowlingGame2.getScorecard();
-		} catch (InterruptedException e) {
-			System.out.println("Exception while sleep");
 		} catch (LaneNotAvailableException e) {
 			System.out.println("No vacant lanes present");
 		}

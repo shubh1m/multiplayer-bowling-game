@@ -3,7 +3,7 @@ package com.cred.game.lane;
 import com.cred.game.utils.RandomIdGenerator;
 
 public class Lane {
-	private Long id;
+	private String id;
 	private LaneStatus status;
 
 	public Lane() {
@@ -11,7 +11,7 @@ public class Lane {
 		this.status = LaneStatus.AVAILABLE;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 

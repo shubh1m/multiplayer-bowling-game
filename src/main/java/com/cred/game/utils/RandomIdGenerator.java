@@ -1,10 +1,9 @@
 package com.cred.game.utils;
 
-import java.util.Date;
+import java.util.UUID;
 
 public class RandomIdGenerator {
-	// Implementation of randomId generator without using any external library
-	public static long getId() {
-		return new Date().getTime();
+	public static String getId() {
+		return UUID.randomUUID().toString();
 	}
 }
